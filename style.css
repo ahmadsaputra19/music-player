@@ -10,8 +10,8 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: #5f7a61; */
-  background-image: url('/img/bg.jpg');
+  background: #5f7a61;
+  /* background-image: url('/img/bg.jpg'); */
   font-family: 'roboto', sans-serif;
   backdrop-filter: blur(5px);
 }
