@@ -36,7 +36,17 @@
         </button>
         <button class="btn forward-btn"></button>
       </div>
+
+      <div class="audio-dropdown">
+        <label for="audioSelect" class="form-label">Pilih Audio:</label>
+        <select class="form-select" id="audioSelect" onchange="changeAudio()">
+          <option class="music-name">Song Name</option>
+          <!-- Tambahkan opsi untuk audio tambahan -->
+        </select>
+      </div>
+
     </div>
+
     
     <script src="data.js"></script>
     <script src="app.js"></script>

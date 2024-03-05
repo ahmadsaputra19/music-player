@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Player</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+        background-image: url(''); /* Ganti dengan nama file atau URL latar belakang Anda */
+        background-size: cover;
+        background-position: center;
+      }
+
+      .music-card {
+        width: 300px;
+        background-color: rgba(255, 255, 255, 0.8); /* Warna latar belakang dengan kejelasan */
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        transition: transform 0.3s ease-in-out;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center; /* Pusatkan secara horizontal */
+        margin: auto;
+      }
+
+      .music-card:hover {
+        transform: scale(1.05);
+      }
+
+      .music-cover {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 8px;
+        border-top-right-radius: 8px;
+        /* filter: blur(8px); Efek blur pada latar belakang */
+      }
+
+      .music-info {
+        padding: 16px;
+        text-align: center;
+      }
+
+      .music-title {
+        font-size: 1.5em;
+        font-weight: bold;
+        margin-bottom: 8px;
+        color: #333;
+      }
+
+      .music-artist {
+        color: #777;
+      }
+
+      .music-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 16px;
+        background-color: transparent; /* Hapus latar belakang agar terlihat transparan */
+        position: relative;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+      }
+
+      .control-btn {
+        background-color: #3498db;
+        color: #fff;
+        border: none;
+        border-radius: 50%;
+        padding: 10px;
+        cursor: pointer;
+        font-size: 1.5em;
+        margin: 0 10px;
+        transition: background-color 0.3s ease-in-out;
+      }
+
+      .control-btn:hover {
+        background-color: #2e86c1;
+      }
+
+      .download-btn {
+        background-color: #27ae60;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 16px;
+        text-decoration: none;
+        margin-top: 10px;
+        transition: background-color 0.3s ease-in-out;
+        display: block;
+      }
+
+      .download-btn:hover {
+        background-color: #219952;
+      }
+
+      .audio-dropdown {
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <div class="music-card">
+            <img src="music1.jpg" alt="Music Cover" class="music-cover" />
+            <div class="music-info">
+              <div class="music-title">Song Title 1</div>
+              <div class="music-artist">Artist 1</div>
+            </div>
+            <div class="music-controls">
+              <button class="control-btn" onclick="playPause()">▶</button>
+              <button class="control-btn" onclick="stop()">⏹</button>
+            </div>
+            <a href="#" class="download-btn">Download</a>
+            <audio id="audioPlayer" src="audio1.mp3"></audio>
+            <div class="audio-dropdown">
+              <label for="audioSelect" class="form-label">Pilih Audio:</label>
+              <select class="form-select" id="audioSelect" onchange="changeAudio()">
+                <option value="audio1.mp3">Audio 1</option>
+                <!-- Tambahkan opsi untuk audio tambahan -->
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      let isPlaying = false;
+      let audio = document.getElementById('audioPlayer');
+
+      function playPause() {
+        if (isPlaying) {
+          audio.pause();
+        } else {
+          audio.play();
+        }
+        isPlaying = !isPlaying;
+      }
+
+      function stop() {
+        audio.pause();
+        audio.currentTime = 0;
+        isPlaying = false;
+      }
+
+      function changeAudio() {
+        const audioSelect = document.getElementById('audioSelect');
+        const selectedAudio = audioSelect.value;
+        audio.src = selectedAudio;
+        stop(); // Stop the current audio when changing to a new one
+      }
+    </script>
+  </body>
+</html>
