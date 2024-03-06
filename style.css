@@ -185,6 +185,11 @@ body {
   cursor: pointer;
 }
 
+.btn i {
+  color: #5f7a61;
+  font-size: 23px;
+}
+
 @keyframes rotate {
   0% {
     transform: rotate(0);

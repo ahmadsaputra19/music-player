@@ -89,10 +89,3 @@ backwardBtn.addEventListener('click', () => {
   playBtn.click();
 });
 
-// change audio
-function changeAudio() {
-  const audioSelect = document.getElementById('audioSelect');
-  const selectedAudio = audioSelect.songs;
-  audio.src = selectedAudio;
-  stop(); // Stop the current audio when changing to a new one
-}
